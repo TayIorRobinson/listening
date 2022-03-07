@@ -33,7 +33,7 @@ function TrackCard({title, artist, album, image, time, link}) {
             <div class="media">
                 <div class="media-left">
                     <figure class="image is-48x48">
-                        <img src="${image}" alt="${album}" />
+                        <img src="${time ? image.replace("/u/","/u/174s/") : image}" alt="${album}" />
                     </figure>
                 </div>
                 <div class="media-content">
