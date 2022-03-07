@@ -7,16 +7,15 @@ const dateFormatter = new Intl.RelativeTimeFormat(undefined);
 
 function formatDate(date) {
     var current = new Date()
-    var diff = (current - date) / 1000;
-    console.log(diff)
+    var diff = Math.round((current - date) / 1000);
     if (diff < 60) return dateFormatter.format(-diff, 'second');
-    diff = Math.floor(diff / 60);
+    diff = Math.round(diff / 60);
     if (diff < 60) return dateFormatter.format(-diff, 'minute');
-    diff = Math.floor(diff / 60);;
+    diff = Math.round(diff / 60);;
     if (diff < 24) return dateFormatter.format(-diff, 'hour');
-    diff = Math.floor(diff / 24);;
+    diff = Math.round(diff / 24);;
     if (diff < 7) return dateFormatter.format(-diff, 'day');
-    diff = Math.floor(diff / 7);;
+    diff = Math.round(diff / 7);;
     return dateFormatter.format(-diff, 'week');
 }
 
@@ -103,12 +102,13 @@ class App extends Component {
         const data = await response.json();
         const tracks = data.recenttracks.track;
         console.log(tracks);
+        this.setState({ tracks });
         await Promise.all(
             tracks
                 .filter((a) => !!a["@attr"])
                 .map((p) => getYouTubeLink(p.url))
         );
-        this.setState({ tracks });
+        this.setState({});
     }
 
     render() {
