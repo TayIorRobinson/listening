@@ -1,0 +1,41 @@
+.bg-image {
+    background: #000;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(50%) blur(5px);
+    transform:scale(110%) translate(-50%);
+    /* fill the height of the parent */
+    height: 100%;
+    /* fill the width of the parent */
+    width: 100vw; 
+    position: absolute;
+    z-index: -1;
+    left: 50%;
+}
+.listening {
+    position: relative;
+    display: block;
+    background: none;
+    font-size: 150%;
+}
+@media screen and (min-width:1215px) {
+    .listening .is-4 {
+        font-size: 3rem;
+    }
+    .listening .is-6 {
+        font-size: 2rem;
+    }
+    .listening .is-48x48 {
+        width: 96px;
+        height: 96px;
+        margin-left: -48px;
+    }
+}
+.listening * {
+    color:#fff;
+}
+.media {
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
