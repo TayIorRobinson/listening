@@ -106,7 +106,7 @@ class App extends Component {
         await Promise.all(
             tracks
                 .filter((a) => !!a["@attr"])
-                .map((p) => getYouTubeLink(p.url))
+                //.map((p) => getYouTubeLink(p.url))
         );
         this.setState({});
     }
